@@ -49,4 +49,6 @@ class ProductsManager{
   List<Product> get favoriteItems {
     return _items.where((item) => item.isFavorite).toList();
   }
+
+  get items => null;
 }
