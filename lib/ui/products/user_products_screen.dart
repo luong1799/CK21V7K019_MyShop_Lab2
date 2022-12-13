@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../shared/app_drawer.dart';
 
 
+import 'edit_product_screen.dart';
 import 'user_product_list_tile.dart';
 import 'products_manager.dart';
 
@@ -17,18 +18,18 @@ class UserProductsScreen extends StatelessWidget{
       appBar: AppBar(
         title: const Text('Your Products'),
         actions: <Widget>[
-          buildAddButton(),
+          buildAddButton(context),
         ],
       ),
       drawer: const AppDrawer(),
       body: RefreshIndicator(
         onRefresh: () async => print('refresh products'),
-        child: buildUserProductListView(productsManager),
+        child: buildUserProductListView(),
       ),
     );
   }
 
-  Widget buildUserProductListView(ProductsManager productsManager){
+  Widget buildUserProductListView() {
     return Consumer<ProductsManager>(
       builder: (ctx, productsManager, child) {
         return ListView.builder(
@@ -46,11 +47,13 @@ class UserProductsScreen extends StatelessWidget{
     );
   }
 
-  Widget buildAddButton(){
+  Widget buildAddButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.add),
       onPressed: () {
-        print('Go to edit product screen');
+        Navigator.of(context).pushNamed(
+          EditProductScreen.routeName,
+        );
       },
     );
   }

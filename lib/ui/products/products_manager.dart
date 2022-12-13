@@ -38,6 +38,15 @@ class ProductsManager with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
       isFavorite: true,
     ),
+    Product(
+      id: 'p6',
+      title: 'Máy Khoan',
+      description: 'Máy khoan pin cầm tay',
+      price: 100.99,
+      imageUrl:
+          'https://dungcuvang.com/wp-content/uploads/2022/07/8101K-main-780x780.jpg',
+      isFavorite: true,
+    ),
   ];
 
   void addProduct(Product product) {
