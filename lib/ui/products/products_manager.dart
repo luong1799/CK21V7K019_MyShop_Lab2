@@ -51,4 +51,12 @@ class ProductsManager{
   }
 
   get items => null;
+
+  Product? findById(String id) {
+    try {
+        return _items.firstWhere((item) => item.id == id);
+    } catch (error) {
+        return null;
+    }
+  }
 }
